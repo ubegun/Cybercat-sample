@@ -48,7 +48,7 @@
     <dependency>
       <groupId>org.cybercat.autotest</groupId>
       <artifactId>cybercat-automation-core</artifactId>
-      <version>1.0-RC2</version>
+      <version>1.0-RC3</version>
     </dependency>
     <dependency>
       <groupId>org.testng</groupId>
@@ -101,6 +101,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+          <outputDirectory>${config.basicArtifactsDir}/Report</outputDirectory>
           <suiteXmlFiles>
             <suiteXmlFile>${basedir}/testng-suites/demo-suite.xml</suiteXmlFile>
           </suiteXmlFiles>
@@ -111,11 +112,10 @@
             </property>
             <property>
               <name>listener</name>
-              <value>org.uncommons.reportng.HTMLReporter,
-                org.uncommons.reportng.JUnitXMLReporter</value>
+              <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
             </property>
           </properties>
-          <workingDirectory>target/</workingDirectory>
+          <workingDirectory>target/</workingDirectory>          
         </configuration>
       </plugin>
       <plugin>
