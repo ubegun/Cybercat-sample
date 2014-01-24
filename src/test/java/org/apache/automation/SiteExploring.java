@@ -23,7 +23,8 @@ public class SiteExploring extends TestNGTestCase {
             .runIntegrationTest()
             .gotoAdvertise()
             .gotoApache()
-            .sampleNavigate("Tomcat");
+            .sampleNavigate("Tomcat")
+            .throwException();
     }
 
     /* (non-Javadoc)

@@ -6,6 +6,7 @@ import org.cybercat.automation.PageObjectException;
 import org.cybercat.automation.components.AbstractPageObject;
 import org.cybercat.automation.components.Button;
 import org.cybercat.automation.components.PageElement;
+import org.cybercat.automation.components.TextContainer;
 
 public class TopFragment extends AbstractPageObject{
 
@@ -18,6 +19,7 @@ public class TopFragment extends AbstractPageObject{
         addElement(new Button("Get Involved", PathType.byXPath, ".//*[@href='/foundation/getinvolved.html']"));
         addElement(new Button("Download", PathType.byXPath, ".//*[@href='/dyn/closer.cgi']"));
         addElement(new Button("Support Apache", PathType.byXPath, ".//*[@href='/foundation/sponsorship.html']"));
+        addElement(new TextContainer("Exception assert", PathType.byXPath, ".//Bla Bla Bla")); 
     }
 
     @Override
@@ -40,6 +42,10 @@ public class TopFragment extends AbstractPageObject{
         if(!StringUtils.contains(expected, value.getText())){
             throw new PageObjectException(value.getName() + "field have text:" + value.getText() + " but expected value is :" + expected);
         }
+    }
+    
+    public void callsUnexitingPath() throws AutomationFrameworkException{
+        getTextContainer("Exception assert").getText();
     }
     
 }

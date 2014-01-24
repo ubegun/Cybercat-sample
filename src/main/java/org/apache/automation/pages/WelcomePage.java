@@ -39,4 +39,8 @@ public class WelcomePage extends AbstractPageObject {
     public void selectProject(String projectName) throws AutomationFrameworkException{
         tableOfContentsFragment.navigateToProject(projectName);
     }
+    
+    public void throwException() throws AutomationFrameworkException{
+        topFragment.callsUnexitingPath();
+    }
 }

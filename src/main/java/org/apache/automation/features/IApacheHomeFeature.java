@@ -32,5 +32,7 @@ public interface IApacheHomeFeature extends IFeature, IVersionControl{
     IApacheHomeFeature gotoApache() throws AutomationFrameworkException;
 
     IApacheHomeFeature sampleNavigate(String toProject) throws AutomationFrameworkException;
+    
+    IApacheHomeFeature throwException() throws AutomationFrameworkException;  
 
 }

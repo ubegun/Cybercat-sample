@@ -72,5 +72,15 @@ public class ApacheHomeSampleFeature extends AbstractFeature implements IApacheH
     public IApacheHomeFeature gotoAdvertise() throws AutomationFrameworkException {
         return this;
     }
+
+    @Override
+    @CCTestStep("Check exception step behaviors.")
+    public IApacheHomeFeature throwException() throws AutomationFrameworkException {
+        apacheWelcome.throwException();
+        return this;
+    }
+    
+   
+    
     
 }
