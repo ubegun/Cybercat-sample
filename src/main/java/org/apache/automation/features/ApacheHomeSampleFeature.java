@@ -17,10 +17,12 @@ package org.apache.automation.features;
 
 import org.apache.automation.pages.WelcomePage;
 import org.cybercat.automation.AutomationFrameworkException;
+import org.cybercat.automation.addons.yslow.GetPerformanceReportEvent;
 import org.cybercat.automation.annotations.CCIntegrationService;
 import org.cybercat.automation.annotations.CCPageObject;
 import org.cybercat.automation.annotations.CCRedirectionStep;
 import org.cybercat.automation.annotations.CCTestStep;
+import org.cybercat.automation.core.AutomationMain;
 import org.cybercat.automation.test.AbstractFeature;
 
 /**
@@ -60,7 +62,8 @@ public class ApacheHomeSampleFeature extends AbstractFeature implements IApacheH
     @Override
     @CCRedirectionStep(desctiption = "Navigation to stat page", url = "http://apache.org/")
     public IApacheHomeFeature gotoApache() throws AutomationFrameworkException {
-        apacheWelcome.validateTopFragment();
+        AutomationMain.getEventManager().notify(new GetPerformanceReportEvent("http://apache.org/", "har111.har"));
+        apacheWelcome.validateTopFragment();        
         return this;
     }
 
@@ -79,8 +82,5 @@ public class ApacheHomeSampleFeature extends AbstractFeature implements IApacheH
         apacheWelcome.throwException();
         return this;
     }
-    
-   
-    
     
 }
